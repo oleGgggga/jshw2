@@ -60,4 +60,40 @@ if (day >= 1 && day <= 11) {
 } else {
     console.log('Третья декада');
 }
+///////
+let day_2 = +prompt('дни');
+let years =0;
+let mounth =0;
+let weeks =0;
+let days =0;
+while(day_2>=1){
+    if (day_2>=365){
+        years++;
+        day_2 -=365;
+    }else if (day_2>=31){
+        mounth++;
+        day_2 -=31;
+    }else if(day_2>=7){
+        weeks++;
+        day_2 -=7;
+    }else{
+        days++;
+        day_2--;
+    }
+}
+console.log(`года ${years},месяца ${mounth},недели ${weeks},дни ${days}`);
 ////////
+switch(true){
+    case (mounth===11 && (weeks !==0 || days !==0)) || mounth<=2:
+        console.log(`${mounth} Зима`);
+    break;
+    case mounth>=3 && mounth<=5:
+        console.log(`${mounth} весна`);
+    break;
+    case mounth>=6 && mounth<=8:
+        console.log(`${mounth} лето`);
+    break;
+    case mounth>=9 && mounth<=11:
+        console.log(`${mounth} осень`);
+    break;
+}
